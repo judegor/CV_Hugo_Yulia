@@ -1,0 +1,592 @@
+:root {
+  /* ===== your original palette ===== */
+  --sidebar-bg: #6a713c;
+  --sidebar-text: #dbdac1;
+  --primary: #b7838b;
+  --primary-light: #e7d8db;
+  --text: #3c2f2f;
+  --bg: #fcfbf7;
+  --border: #d0b4b8;
+
+  /* ===== new pink-cute accents ===== */
+  --cream-bg: #fffdfc;
+  --pink-lightest: #fff4f8;
+  --pink-light: #ffd0dd;
+  --pink-medium: #f4aebc;
+  --pink-dark: #b76b7f;
+}
+
+/* Import your headings + UI fonts */
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Merriweather:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Merriweather", Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  display: flex;
+  scroll-behavior: smooth;
+}
+
+/* ===== SIDEBAR ===== */
+/* ===== SIDEBAR ===== */
+#sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+
+  /* stack items, center them horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* ← center everything */
+  padding: 2.5rem 1rem;      /* generous top/bottom padding */
+  box-shadow: 2px 0 12px rgba(0,0,0,0.05);
+}
+
+/* ===== PROFILE ===== */
+.profile {
+  /* no change—avatar sits at top, centered by parent */
+}
+
+/* ===== NAVIGATION WRAPPER ===== */
+#sidebar-nav-wrapper {
+  margin-top: 2rem;          /* space below avatar */
+  width: 100%;               /* full width for nav */
+  text-align: center;        /* center H2 & UL */
+}
+
+#sidebar-nav-wrapper h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+#sidebar-nav-wrapper h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: var(--pink-light);
+  border-radius: 2px;
+}
+
+#sidebar-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-navigation li + li {
+  margin-top: 0.75rem;      /* consistent gap between items */
+}
+
+#sidebar-navigation a {
+  display: inline-block;     /* shrink to text width */
+  padding: 0.5rem 1rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: color .2s, transform .2s, background .2s;
+}
+#sidebar-navigation a:hover,
+#sidebar-navigation a.active {
+  background: var(--pink-lightest);
+  color: var(--pink-dark);
+  transform: translateX(4px);
+}
+
+/* ===== PUSH CONTACT TO BOTTOM ===== */
+#sidebar-contact-wrapper {
+  margin-top: auto;          /* pushes this wrapper to the bottom */
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2rem;      /* extra breathing room under icons */
+}
+
+#sidebar-contact-wrapper h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--sidebar-text);
+}
+
+#sidebar-social ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-social a {
+  font-size: 1.75rem;
+  padding: 0.5rem;
+  color: inherit;
+  transition: color .2s, transform .2s;
+}
+#sidebar-social a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* avatar hover polish */
+.profile img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.profile img:hover {
+  transform: scale(1.05);
+}
+
+/* navigation links */
+#sidebar-navigation ul,
+#sidebar-social ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+#sidebar-navigation a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+  font-weight: 600;
+}
+
+#sidebar-navigation a:hover,
+#sidebar-navigation a.active {
+  background: var(--pink-lightest);
+  color: var(--pink-dark);
+  transform: translateX(4px);
+}
+
+/* social icons */
+#sidebar-social a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+
+#sidebar-social a:hover {
+  color: var(--primary);
+}
+
+/* ===== LAYOUT (content area) ===== */
+#layout {
+  display: flex;
+  flex: 1;
+}
+
+#content {
+  flex: 1;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  #layout {
+    flex-direction: column;
+  }
+
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+
+  #content {
+    padding: 1rem;
+  }
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1.name {
+  font-family: "Agbalumo", system-ui;
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 0.25em;
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--text);
+}
+
+h2.section-title {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--text);
+  position: relative;
+  margin-top: 2.5rem;
+}
+
+h2.section-title::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.25rem;
+  width: 4px;
+  height: 1.5rem;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* ===== RESEARCH CARDS ===== */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.research-card {
+  background: var(--primary-light);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(183, 131, 139, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.research-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(183, 131, 139, 0.3);
+  cursor: default;
+}
+
+/* ===== RESUME / EDUCATION ITEMS ===== */
+.resume-item,
+.education-item {
+  background: white;
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+/* constrain the section and center it */
+#achievements {
+  background: var(--cream-bg);
+  padding: 2rem 1rem;
+  max-width: 900px;      /* tweak to taste */
+  margin: 0 auto;        /* center it */
+}
+
+/* reuse your research-grid pattern */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* make the card fill its grid cell */
+.achievement-card {
+  background: #fff;
+  border-left: 4px solid var(--pink-medium);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(183, 107, 127, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(183, 107, 127, 0.2);
+}
+
+
+/* ===== SKILLS ===== */
+.skill-item {
+  display: flex;
+  align-items: center;
+  background: var(--primary-light);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.skill-bar {
+  flex: 1;
+  background: #eee;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+  overflow: hidden;
+  height: 0.75rem;
+}
+
+.skill-fill {
+  background: var(--primary);
+  height: 100%;
+}
+
+/* ===== LANGUAGES ===== */
+.language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-light);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.language-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.language-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-flag {
+  width: 48px;
+  height: 32px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.language-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.language-name {
+  font-family: 'Merriweather', serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.language-level {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+/* ===== Section-In View Animations ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== PAPERS SECTION ===== */
+.papers-section {
+  background: var(--cream-bg);
+  padding: 4rem 1rem;
+}
+
+.papers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+.container {
+  perspective: 800px;  /* задаём глубину сцены */
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  transform-style: preserve-3d;
+  transform: rotateX(2deg) rotateY(-3deg);
+  transition: transform 0.3s;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15),
+    0 4px 6px rgba(0,0,0,0.10);
+}
+
+/* по наведению чуть “вывернем” карточку */
+.card:hover {
+  transform: rotateX(0deg) rotateY(0deg) translateZ(20px);
+}
+
+/* псевдоэлемент “нижняя грань” */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;  /* толщина “бруска” */
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(0,0,0,0.05);
+  transform: rotateX(90deg);
+  transform-origin: top;
+  border-radius: 0 0 12px 12px;
+}
+
+.paper-card {
+  background: #fff;
+  border: 1px solid var(--pink-light);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.paper-card:hover {
+  background: rgba(255, 208, 221, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.paper-title {
+  position: relative;
+  padding-left: 1.2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: var(--pink-dark);
+  margin-bottom: 1rem;
+}
+
+.paper-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--pink-light);
+  border-radius: 50%;
+}
+
+.paper-link {
+  align-self: flex-start;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--pink-medium);
+  transition: color 0.2s;
+}
+
+.paper-link::after {
+  content: '↗';
+  margin-left: 0.3rem;
+  transition: transform 0.2s;
+}
+
+.paper-link:hover {
+  color: var(--pink-dark);
+}
+
+.paper-link:hover::after {
+  transform: translateX(3px);
+}
+/* BIO CARD ACCENT */
+.bio-card {
+  background: var(--pink-lightest);       /* very pale pink */
+  border-left: 6px solid var(--pink-medium);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: relative;
+  font-size: var(--fs-md);
+  line-height: 1.6;
+}
+
+/* DROP-CAP FOR FIRST LETTER */
+.bio-card p::first-letter {
+  float: left;
+  font-size: 3rem;
+  line-height: 1;
+  margin-right: 0.5rem;
+  color: var(--pink-dark);
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+/* OPTIONAL: a subtle pink glow on hover */
+.bio-card:hover {
+  box-shadow: 0 8px 24px rgba(183,107,127,0.2);
+}
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 4px;
+  background: var(--pink-medium); width: 0;
+  z-index: 200;
+}
+/* 1) Задаём “камеру” */
+.resume-container {
+  perspective: 800px;
+}
+
+/* 2) Превращаем каждую карточку в 3D-объект */
+.resume-item,
+.education-item {
+  position: relative;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  /* эти строчки – ключевые */
+  transform-style: preserve-3d;
+  transform: rotateX(2deg) rotateY(-3deg);
+  transition: transform 0.3s;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15),
+    0 4px 6px rgba(0,0,0,0.10);
+}
+
+/* 3) Наведение “поднимает” карточку и распрямляет */
+.resume-item:hover,
+.education-item:hover {
+  transform: rotateX(0) rotateY(0) translateZ(20px);
+}
+
+/* 4) Делаем “нижнюю грань” */
+.resume-item::after,
+.education-item::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;    /* толщина “бруска” */
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(0,0,0,0.05);
+  transform: rotateX(90deg);
+  transform-origin: top;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
