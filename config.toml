@@ -1,4 +1,4 @@
 publishDir = "docs"
-baseURL = "/"
+baseURL = "https://judegor.github.io/CV_Hugo_Yulia/"
 languageCode = "en-us"
 title = "Iuliia Goriacheva | Academic Resume"
