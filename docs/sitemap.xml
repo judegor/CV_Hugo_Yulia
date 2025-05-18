@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:50610/CV_Hugo_Yulia/categories/</loc>
+    <loc>https://judegor.github.io/CV_Hugo_Yulia/categories/</loc>
   </url><url>
-    <loc>http://localhost:50610/CV_Hugo_Yulia/</loc>
+    <loc>https://judegor.github.io/CV_Hugo_Yulia/</loc>
   </url><url>
-    <loc>http://localhost:50610/CV_Hugo_Yulia/tags/</loc>
+    <loc>https://judegor.github.io/CV_Hugo_Yulia/tags/</loc>
   </url>
 </urlset>
