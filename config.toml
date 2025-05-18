@@ -1,4 +1,4 @@
+publishDir = "docs"
 baseURL = "/"
 languageCode = "en-us"
 title = "Iuliia Goriacheva | Academic Resume"
-publishDir = "docs"
